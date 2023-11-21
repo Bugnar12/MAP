@@ -1,0 +1,181 @@
+
+Program state :
+exeStack :MyStack[(string varf;(varf=ValueExpression{test.in.txt};(OpenReadFile(VarExp{'varf'})
+;(int varc;(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});Close the fileVarExp{'varf'}))))))))))]
+symbolTable :{}
+output :[]
+fileTable :{}
+
+Program state :
+exeStack :MyStack[(varf=ValueExpression{test.in.txt};(OpenReadFile(VarExp{'varf'})
+;(int varc;(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});Close the fileVarExp{'varf'}))))))))), string varf]
+symbolTable :{}
+output :[]
+fileTable :{}
+
+Program state :
+exeStack :MyStack[(varf=ValueExpression{test.in.txt};(OpenReadFile(VarExp{'varf'})
+;(int varc;(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});Close the fileVarExp{'varf'})))))))))]
+symbolTable :{varf=}
+output :[]
+fileTable :{}
+
+Program state :
+exeStack :MyStack[(OpenReadFile(VarExp{'varf'})
+;(int varc;(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});Close the fileVarExp{'varf'})))))))), varf=ValueExpression{test.in.txt}]
+symbolTable :{varf=}
+output :[]
+fileTable :{}
+
+Program state :
+exeStack :MyStack[(OpenReadFile(VarExp{'varf'})
+;(int varc;(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});Close the fileVarExp{'varf'}))))))))]
+symbolTable :{varf=test.in.txt}
+output :[]
+fileTable :{}
+
+Program state :
+exeStack :MyStack[(int varc;(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});Close the fileVarExp{'varf'}))))))), OpenReadFile(VarExp{'varf'})
+]
+symbolTable :{varf=test.in.txt}
+output :[]
+fileTable :{}
+
+Program state :
+exeStack :MyStack[(int varc;(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});Close the fileVarExp{'varf'})))))))]
+symbolTable :{varf=test.in.txt}
+output :[]
+fileTable :{test.in.txt=java.io.BufferedReader@6e5e91e4}
+
+Program state :
+exeStack :MyStack[(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});Close the fileVarExp{'varf'})))))), int varc]
+symbolTable :{varf=test.in.txt}
+output :[]
+fileTable :{test.in.txt=java.io.BufferedReader@6e5e91e4}
+
+Program state :
+exeStack :MyStack[(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});Close the fileVarExp{'varf'}))))))]
+symbolTable :{varf=test.in.txt, varc=0}
+output :[]
+fileTable :{test.in.txt=java.io.BufferedReader@6e5e91e4}
+
+Program state :
+exeStack :MyStack[(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});Close the fileVarExp{'varf'}))))), ReadFile(VarExp{'varf'})
+]
+symbolTable :{varf=test.in.txt, varc=0}
+output :[]
+fileTable :{test.in.txt=java.io.BufferedReader@6e5e91e4}
+
+Program state :
+exeStack :MyStack[(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});Close the fileVarExp{'varf'})))))]
+symbolTable :{varf=test.in.txt, varc=15}
+output :[]
+fileTable :{test.in.txt=java.io.BufferedReader@6e5e91e4}
+
+Program state :
+exeStack :MyStack[(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});Close the fileVarExp{'varf'})))), print(VarExp{'varc'})]
+symbolTable :{varf=test.in.txt, varc=15}
+output :[]
+fileTable :{test.in.txt=java.io.BufferedReader@6e5e91e4}
+
+Program state :
+exeStack :MyStack[(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});Close the fileVarExp{'varf'}))))]
+symbolTable :{varf=test.in.txt, varc=15}
+output :[15]
+fileTable :{test.in.txt=java.io.BufferedReader@6e5e91e4}
+
+Program state :
+exeStack :MyStack[(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});Close the fileVarExp{'varf'}))), ReadFile(VarExp{'varf'})
+]
+symbolTable :{varf=test.in.txt, varc=15}
+output :[15]
+fileTable :{test.in.txt=java.io.BufferedReader@6e5e91e4}
+
+Program state :
+exeStack :MyStack[(print(VarExp{'varc'});(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});Close the fileVarExp{'varf'})))]
+symbolTable :{varf=test.in.txt, varc=50}
+output :[15]
+fileTable :{test.in.txt=java.io.BufferedReader@6e5e91e4}
+
+Program state :
+exeStack :MyStack[(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});Close the fileVarExp{'varf'})), print(VarExp{'varc'})]
+symbolTable :{varf=test.in.txt, varc=50}
+output :[15]
+fileTable :{test.in.txt=java.io.BufferedReader@6e5e91e4}
+
+Program state :
+exeStack :MyStack[(ReadFile(VarExp{'varf'})
+;(print(VarExp{'varc'});Close the fileVarExp{'varf'}))]
+symbolTable :{varf=test.in.txt, varc=50}
+output :[15, 50]
+fileTable :{test.in.txt=java.io.BufferedReader@6e5e91e4}
+
+Program state :
+exeStack :MyStack[(print(VarExp{'varc'});Close the fileVarExp{'varf'}), ReadFile(VarExp{'varf'})
+]
+symbolTable :{varf=test.in.txt, varc=50}
+output :[15, 50]
+fileTable :{test.in.txt=java.io.BufferedReader@6e5e91e4}
+
+Program state :
+exeStack :MyStack[(print(VarExp{'varc'});Close the fileVarExp{'varf'})]
+symbolTable :{varf=test.in.txt, varc=70}
+output :[15, 50]
+fileTable :{test.in.txt=java.io.BufferedReader@6e5e91e4}
+
+Program state :
+exeStack :MyStack[Close the fileVarExp{'varf'}, print(VarExp{'varc'})]
+symbolTable :{varf=test.in.txt, varc=70}
+output :[15, 50]
+fileTable :{test.in.txt=java.io.BufferedReader@6e5e91e4}
+
+Program state :
+exeStack :MyStack[Close the fileVarExp{'varf'}]
+symbolTable :{varf=test.in.txt, varc=70}
+output :[15, 50, 70]
+fileTable :{test.in.txt=java.io.BufferedReader@6e5e91e4}
+
+Program state :
+exeStack :MyStack[]
+symbolTable :{varf=test.in.txt, varc=70}
+output :[15, 50, 70]
+fileTable :{}
+
