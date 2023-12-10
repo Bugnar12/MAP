@@ -27,10 +27,10 @@ public class Repository implements IRepository{
         }
 
     }
-    @Override
-    public PrgState getCurrentProgram() {
-        return programs.get(0);
-    }
+//    @Override
+//    public PrgState getCurrentProgram() {
+//        return programs.get(0);
+//    }
 
     @Override
     public void add(PrgState program) {
@@ -38,7 +38,7 @@ public class Repository implements IRepository{
     }
 
     @Override
-    public void logPrgStateExec(PrgState program) throws Exception
+    public void logPrgStateExec(PrgState program) throws InvalidRepositroy
     {
         //if we declare PrintWriter() here, then in the try-catch block no error can be thrown
         try{
@@ -65,6 +65,17 @@ public class Repository implements IRepository{
             throw new InvalidRepositroy("Error when opening the file!\n");
         }
     }
+
+    @Override
+    public List<PrgState> getProgramList() {
+        return this.programs;
+    }
+
+    @Override
+    public void setProgramList(List<PrgState> programs) {
+        this.programs = programs;
+    }
+
     @Override
     public String toString() {
         return "Repository{" + programs + "}";

@@ -1,5 +1,6 @@
 package model.expression;
 
+import collections.IHeap;
 import collections.MyIDictionary;
 import exception.DivisionByZero;
 import exception.InvalidOperator;
@@ -20,13 +21,13 @@ public class ArithExp implements Exp {
     }
 
     @Override
-    public Value evaluate(MyIDictionary<String, Value> table) throws Exception
+    public Value evaluate(MyIDictionary<String, Value> table, IHeap<Integer, Value> heap) throws Exception
     {
         Value value1, value2;
-        value1 = exp1.evaluate(table);
+        value1 = exp1.evaluate(table, heap);
         if (value1.getType().equals(new IntType())) //if we have an integer
         {
-            value2 = exp2.evaluate(table);
+            value2 = exp2.evaluate(table, heap);
             if (value2.getType().equals(new IntType())) {
                 int firstInteger = ((IntValue) value1).getVal();
                 int secondInteger = ((IntValue) value2).getVal();

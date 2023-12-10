@@ -1,5 +1,6 @@
 package model.statement;
 
+import collections.IHeap;
 import collections.MyIDictionary;
 import collections.MyIStack;
 import exception.InvalidType;
@@ -24,8 +25,9 @@ public class CloseReadFile implements IStmt{
         //MyIStack<IStmt> stack = state.getExeStack();
         MyIDictionary<String, Value> symbolTable= state.getSymbolTable();
         MyIDictionary<StringValue, BufferedReader> fileTable = state.getFileTable();
+        IHeap<Integer, Value> heap = state.getHeap();
 
-        Value filePath = expression.evaluate(symbolTable);
+        Value filePath = expression.evaluate(symbolTable, heap);
         Type filePathType = filePath.getType();
         if(!filePathType.equals(new StringType()))
             throw new InvalidType("The type of the filePath should be string!\n");

@@ -19,7 +19,7 @@ public class CompStmt implements IStmt{
         stk.push(secondStatement);
         stk.push(firstStatement);
 
-        return state;
+        return null;
     }
 
     @Override

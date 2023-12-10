@@ -2,6 +2,7 @@ package collections;
 
 import exception.ExistingVariable;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,8 +49,8 @@ public class MyDictionary<K, V> implements MyIDictionary<K, V>{
     public MyIDictionary<K, V> copy() throws Exception{
         MyDictionary<K, V> clone_dict = new MyDictionary<>(); //raw type
         for(K key : this.dict.keySet()){
-            if(clone_dict.isDefined(key))
-                throw new ExistingVariable("Key already exists!");
+            /*if(clone_dict.isDefined(key))
+                throw new ExistingVariable("Key already exists!");*/
             clone_dict.put(key, this.dict.get(key));
         }
         return clone_dict;
@@ -64,6 +65,16 @@ public class MyDictionary<K, V> implements MyIDictionary<K, V>{
     public void delete(K key, V value)
     {
         dict.remove(key, value);
+    }
+
+    @Override
+    public Map<K, V> getContent() {
+        return this.dict;
+    }
+
+    @Override
+    public Collection<V> getAllValues() {
+        return this.dict.values();
     }
 
 }

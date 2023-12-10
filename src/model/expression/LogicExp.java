@@ -1,5 +1,6 @@
 package model.expression;
 
+import collections.IHeap;
 import collections.MyIDictionary;
 import exception.InvalidOperator;
 import exception.InvalidType;
@@ -20,11 +21,11 @@ public class LogicExp implements Exp{
     }
 
     @Override
-    public Value evaluate(MyIDictionary<String, Value> table) throws Exception {
-        Value value1 = this.expression1.evaluate(table);
+    public Value evaluate(MyIDictionary<String, Value> table, IHeap<Integer, Value> heap) throws Exception {
+        Value value1 = this.expression1.evaluate(table, heap);
 
         if (value1.getType().equals(new BoolType())) {
-            Value value2 = this.expression2.evaluate(table);
+            Value value2 = this.expression2.evaluate(table, heap);
 
             if (value2.getType().equals(new BoolType())) {
                 boolean firstBool = ((BoolValue) value1).getVal();

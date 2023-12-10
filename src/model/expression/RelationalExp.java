@@ -1,5 +1,6 @@
 package model.expression;
 
+import collections.IHeap;
 import collections.MyIDictionary;
 import exception.InvalidOperator;
 import exception.InvalidType;
@@ -22,9 +23,9 @@ public class RelationalExp implements Exp{
 
 
     @Override
-    public Value evaluate(MyIDictionary<String, Value> table) throws Exception {
-        Value firstValue = this.expression1.evaluate(table);
-        Value secondValue = this.expression2.evaluate(table);
+    public Value evaluate(MyIDictionary<String, Value> table, IHeap<Integer, Value> heap) throws Exception {
+        Value firstValue = this.expression1.evaluate(table, heap);
+        Value secondValue = this.expression2.evaluate(table, heap);
 
         //first convert from Value(interface) to IntValue(class)
         //then, with another round of parantheses, get the value from the "class" which is the degenerate type int

@@ -1,5 +1,6 @@
 package model.statement;
 
+import collections.IHeap;
 import collections.MyIDictionary;
 import collections.MyIList;
 import collections.MyIStack;
@@ -25,10 +26,12 @@ public class WhileStmt implements IStmt {
         MyIStack<IStmt> stack = state.getExeStack();
         MyIDictionary<String, Value> symbolTable = state.getSymbolTable();
         MyIList<Value> output = state.getOut();
+        IHeap<Integer, Value> heap = state.getHeap();
 
-        Value expression_value = expression.evaluate(symbolTable);
+        Value expression_value = expression.evaluate(symbolTable, heap);
         if(!expression_value.getType().equals(new BoolType()))
-            throw new InvalidType("The type of the expression should be boolean!");
+            throw new InvalidType("The type" +
+                    " of the expression should be boolean!");
         else
         {
             if(expression_value.equals(new BoolValue(true)))
@@ -43,5 +46,13 @@ public class WhileStmt implements IStmt {
     @Override
     public IStmt deepcopy() {
         return new WhileStmt(this.expression, this.statement);
+    }
+
+    @Override
+    public String toString() {
+        return "While(" +
+                expression +
+                ") " + statement +
+                "\n";
     }
 }

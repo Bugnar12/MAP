@@ -1,5 +1,6 @@
 package model.expression;
 
+import collections.IHeap;
 import collections.MyIDictionary;
 import exception.UndefinedVariable;
 import model.value.Value;
@@ -13,7 +14,7 @@ public class VarExp implements Exp{
     }
 
     @Override
-    public Value evaluate(MyIDictionary<String, Value> table) throws Exception {
+    public Value evaluate(MyIDictionary<String, Value> table, IHeap<Integer, Value> heap) throws Exception {
         if(!table.isDefined(id))
             throw new UndefinedVariable();
         else

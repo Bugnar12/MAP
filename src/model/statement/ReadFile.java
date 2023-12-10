@@ -1,5 +1,6 @@
 package model.statement;
 
+import collections.IHeap;
 import collections.MyIDictionary;
 import collections.MyIStack;
 import exception.InvalidType;
@@ -34,6 +35,7 @@ public class ReadFile implements IStmt{
         //MyIStack<IStmt> stack = state.getExeStack();
         MyIDictionary<String, Value> symbolTable= state.getSymbolTable();
         MyIDictionary<StringValue, BufferedReader> fileTable = state.getFileTable();
+        IHeap<Integer, Value> heap = state.getHeap();
 
         if(!symbolTable.isDefined(variableName))
             throw new UndefinedVariable("Variable not declared in symbol table!\n");
@@ -44,7 +46,7 @@ public class ReadFile implements IStmt{
         if(!typeOfVariable.equals(new IntType()))
             throw new InvalidType("The type of the variable should be int!");
 
-        Value filePathValue = expression.evaluate(symbolTable);
+        Value filePathValue = expression.evaluate(symbolTable, heap);
 
         if(!filePathValue.getType().equals(new StringType()))
             throw new InvalidType("The type of the filePath should be StringValue!\n");

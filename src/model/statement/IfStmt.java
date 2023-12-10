@@ -1,5 +1,6 @@
 package model.statement;
 
+import collections.IHeap;
 import collections.MyIDictionary;
 import collections.MyIList;
 import collections.MyIStack;
@@ -27,8 +28,9 @@ public class IfStmt implements IStmt{
         MyIStack<IStmt> stack = state.getExeStack();
         MyIDictionary<String, Value> symbolTable = state.getSymbolTable();
         MyIList<Value> output = state.getOut();
+        IHeap<Integer, Value> heap = state.getHeap();
 
-        Value conditionalExpressionValue = expression.evaluate(symbolTable);
+        Value conditionalExpressionValue = expression.evaluate(symbolTable, heap);
         if(!conditionalExpressionValue.getType().equals(new BoolType()))
             throw new InvalidType("The type of the conditional expr. must be boolean!");
         if(((BoolValue)conditionalExpressionValue).getVal()) //if the cond. is true

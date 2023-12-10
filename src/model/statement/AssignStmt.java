@@ -1,5 +1,7 @@
 package model.statement;
 
+import collections.Heap;
+import collections.IHeap;
 import collections.MyIDictionary;
 import collections.MyIStack;
 import exception.InvalidType;
@@ -24,10 +26,11 @@ public class AssignStmt implements IStmt{
     public PrgState execute(PrgState state) throws Exception {
         MyIStack<IStmt> stack = state.getExeStack();
         MyIDictionary<String, Value> symbolTable = state.getSymbolTable();
+        IHeap<Integer, Value> heap = state.getHeap();
 
         if(symbolTable.isDefined(id))
         {
-            Value val = expression.evaluate(symbolTable);
+            Value val = expression.evaluate(symbolTable, heap);
             Type typeId = (symbolTable.lookUp(id)).getType();
             Type valType = val.getType();
             if(valType.equals(typeId))
@@ -38,7 +41,7 @@ public class AssignStmt implements IStmt{
         else
             throw new UndefinedVariable("The used variable" + id + "was not declared before");
 
-        return state;
+        return null;
     }
 
     //should create a new object of type AssignStmt and return it

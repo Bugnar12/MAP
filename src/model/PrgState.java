@@ -3,6 +3,8 @@ package model;
 import collections.MyIDictionary;
 import collections.MyIList;
 import collections.MyIStack;
+import collections.IHeap;
+import exception.EmptyADT;
 import model.statement.IStmt;
 import model.value.StringValue;
 import model.value.Value;
@@ -14,18 +16,32 @@ import java.nio.Buffer;
 /*The program state contains an execution stack, a symbol table and an output
 * */
 public class PrgState {
-    MyIStack<IStmt> exeStack;
-    MyIDictionary<String, Value> symbolTable;
-    MyIList<Value> out;
-    IStmt originalPrg;
-    MyIDictionary<StringValue, BufferedReader> fileTable;
-
-    public PrgState(MyIStack<IStmt> stack, MyIDictionary<String, Value> symtbl, MyIList<Value> o, MyIDictionary<StringValue, BufferedReader> fileTable, IStmt prg)
+    private MyIStack<IStmt> exeStack;
+    private MyIDictionary<String, Value> symbolTable;
+    private MyIList<Value> out;
+    private IStmt originalPrg;
+    private MyIDictionary<StringValue, BufferedReader> fileTable;
+    private IHeap<Integer, Value> heap;
+    private int id;
+    private static int nextID = 0;
+    public static synchronized int getNextID()
     {
+        return nextID++; // this will be passed to the id from our class
+    }
+
+    public PrgState(MyIStack<IStmt> stack, MyIDictionary<String, Value> symtbl, MyIList<Value> o, MyIDictionary<StringValue, BufferedReader> fileTable, IHeap<Integer, Value> heap, int id, IStmt prg)
+    {
+        /*synchronized (PrgState.class)
+        {
+            this.id = nextID;
+            nextID++;
+        }*/
         this.exeStack = stack;
         this.symbolTable = symtbl;
         this.out = o;
         this.fileTable = fileTable;
+        this.heap = heap;
+        this.id = id;
         this.originalPrg = prg.deepcopy();
         stack.push(prg);
     }
@@ -58,13 +74,38 @@ public class PrgState {
 
     public void setFileTable(MyIDictionary<StringValue, BufferedReader> newFileTable){ this.fileTable = newFileTable; }
 
+    public IHeap<Integer, Value> getHeap() { return heap; }
 
+    public void setHeap(IHeap<Integer, Value> newHeap) { this.heap = newHeap; }
+
+    public int getId() {
+        return id;
+    }
+    public void setId(int newID)
+    {
+        this.id = newID;
+    }
+
+    public Boolean isNotCompleted()
+    {
+        return !(this.exeStack.isEmpty());
+    }
+
+    public PrgState oneStep() throws Exception
+    {
+        if(exeStack.isEmpty())
+            throw new EmptyADT("The execution stack is empty!");
+        IStmt currentStmt = this.exeStack.pop();
+        return currentStmt.execute(this);
+    }
     @Override
     public String toString() {
         return "Program state :" +
+                "\nID :" + id +
                 "\nexeStack :" + exeStack +
                 "\nsymbolTable :" + symbolTable +
                 "\noutput :" + out +
-                "\nfileTable :" + fileTable + "\n";
+                "\nfileTable :" + fileTable +
+                "\nheap :" + heap + "\n";
     }
 }

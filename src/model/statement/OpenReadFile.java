@@ -1,5 +1,6 @@
 package model.statement;
 
+import collections.IHeap;
 import collections.MyIDictionary;
 import collections.MyIList;
 import collections.MyIStack;
@@ -29,8 +30,9 @@ public class OpenReadFile implements IStmt{
     public PrgState execute(PrgState state) throws Exception {
         MyIDictionary<String, Value> symbolTable= state.getSymbolTable();
         MyIDictionary<StringValue, BufferedReader> fileTable = state.getFileTable();
+        IHeap<Integer, Value> heap = state.getHeap();
 
-        Value filePath = this.expression.evaluate(symbolTable);
+        Value filePath = this.expression.evaluate(symbolTable, heap);
 
         if(fileTable.isDefined((StringValue)(filePath)))
         {

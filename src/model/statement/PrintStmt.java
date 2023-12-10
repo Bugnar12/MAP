@@ -1,5 +1,6 @@
 package model.statement;
 
+import collections.IHeap;
 import collections.MyIDictionary;
 import collections.MyIList;
 import collections.MyIStack;
@@ -20,9 +21,10 @@ public class PrintStmt implements IStmt{
         MyIStack<IStmt> stk = state.getExeStack();
         MyIList<Value> output = state.getOut();
         MyIDictionary<String, Value> symbolTable = state.getSymbolTable();
+        IHeap<Integer, Value> heap = state.getHeap();
 
-        output.add(exp.evaluate(symbolTable));
-        return state;
+        output.add(exp.evaluate(symbolTable, heap));
+        return null;
     }
 
     @Override
