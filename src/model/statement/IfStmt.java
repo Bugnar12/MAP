@@ -8,6 +8,7 @@ import exception.InvalidType;
 import model.PrgState;
 import model.expression.Exp;
 import model.type.BoolType;
+import model.type.Type;
 import model.value.BoolValue;
 import model.value.Value;
 
@@ -46,6 +47,16 @@ public class IfStmt implements IStmt{
         return new IfStmt(expression, thenStatement, elseStatement);
     }
 
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws Exception {
+        Type typeExp = expression.typeCheck(typeEnv);
+        if (typeExp.equals(new BoolType())) {
+            thenStatement.typeCheck(typeEnv.copy());
+            elseStatement.typeCheck(typeEnv.copy());
+            return typeEnv;
+        } else
+            throw new InvalidType("The condition of IF has not the type bool!\n");
+    }
     @Override
     public String toString() {
         return "(IF("+ expression.toString()+") THEN(" +thenStatement.toString()

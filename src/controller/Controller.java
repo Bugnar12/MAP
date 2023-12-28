@@ -128,6 +128,7 @@ public class Controller {
         //Callable -> can return something ; Runnable -> cannot return only execute
         List<Callable<PrgState>> callList = programList.stream()
                 //() -> p.oneStep() : create a Callable() object that calls oneStep method of Repository.
+                //Calleble object invokes oneStep()
                 .map((PrgState p) -> (Callable<PrgState>) (() -> p.oneStep()))
                 .collect(Collectors.toList());
 

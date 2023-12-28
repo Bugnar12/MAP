@@ -2,6 +2,7 @@ package model.statement;
 
 import collections.*;
 import model.PrgState;
+import model.type.Type;
 import model.value.Value;
 
 public class ForkStmt implements IStmt{
@@ -28,6 +29,12 @@ public class ForkStmt implements IStmt{
     @Override
     public IStmt deepcopy() {
         return new ForkStmt(this.statement);
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws Exception {
+        statement.typeCheck(typeEnv.copy());
+        return typeEnv;
     }
 
     @Override

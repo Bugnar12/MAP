@@ -4,8 +4,12 @@ import collections.IHeap;
 import collections.MyIDictionary;
 import exception.InvalidType;
 import exception.UndefinedVariable;
+import model.type.RefType;
+import model.type.Type;
 import model.value.RefValue;
 import model.value.Value;
+
+import java.sql.Ref;
 
 public class readHeapExp implements Exp{
     private Exp expression;
@@ -28,6 +32,17 @@ public class readHeapExp implements Exp{
 
         //returns the specific Value from the heap table using the address
         return heap.get(address);
+    }
+
+    @Override
+    public Type typeCheck(MyIDictionary<String, Type> typeEnv) throws Exception {
+        Type type = expression.typeCheck(typeEnv);
+        if(type instanceof RefType reft)
+        {
+            return reft.getInner();
+        }
+        else
+            throw new InvalidType("The type should be RefType!\n");
     }
 
     @Override

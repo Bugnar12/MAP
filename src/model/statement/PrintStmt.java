@@ -4,16 +4,16 @@ import collections.IHeap;
 import collections.MyIDictionary;
 import collections.MyIList;
 import collections.MyIStack;
-import exception.UndefinedState;
 import model.PrgState;
 import model.expression.Exp;
+import model.type.Type;
 import model.value.Value;
 
 public class PrintStmt implements IStmt{
-    private Exp exp;
+    private Exp expression;
     public PrintStmt(Exp exp)
     {
-        this.exp = exp;
+        this.expression = exp;
     }
     @Override
     public PrgState execute(PrgState state) throws Exception
@@ -23,18 +23,24 @@ public class PrintStmt implements IStmt{
         MyIDictionary<String, Value> symbolTable = state.getSymbolTable();
         IHeap<Integer, Value> heap = state.getHeap();
 
-        output.add(exp.evaluate(symbolTable, heap));
+        output.add(expression.evaluate(symbolTable, heap));
         return null;
     }
 
     @Override
     public IStmt deepcopy() {
-        return new PrintStmt(exp);
+        return new PrintStmt(expression);
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws Exception {
+        expression.typeCheck(typeEnv);
+        return typeEnv;
     }
 
     @Override
     public String toString()
     {
-        return "print(" + exp.toString() + ")";
+        return "print(" + expression.toString() + ")";
     }
 }

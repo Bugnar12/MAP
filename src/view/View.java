@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class View {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         //int v; v=2; Print(v)
         IStmt ex1 = new CompStmt(new VarDeclStmt("v", new IntType()),
@@ -24,6 +24,8 @@ public class View {
         MyList<Value> output1 = new MyList<>();
         MyDictionary<StringValue, BufferedReader> fileTable1 = new MyDictionary<>();
         Heap<Integer, Value> heap1 = new Heap<>();
+        MyIDictionary<String, Type> typeEnv1 = new MyDictionary<>();
+        ex1.typeCheck(typeEnv1);
         PrgState programState1 = new PrgState(stack1, symbolTable1, output1, fileTable1, heap1, PrgState.getNextID(), ex1);
         IRepository repository1 = new Repository("D:\\UBB\\Semester 3\\Advanced Programming Methods\\ToyLanguageInterpreter\\log1.txt");
         repository1.add(programState1);
@@ -46,6 +48,8 @@ public class View {
         MyList<Value> output2 = new MyList<>();
         MyDictionary<StringValue, BufferedReader> fileTable2 = new MyDictionary<>();
         Heap<Integer, Value> heap2 = new Heap<>();
+        MyIDictionary<String, Type> typeEnv2 = new MyDictionary<>();
+        ex2.typeCheck(typeEnv2);
         PrgState programState2 = new PrgState(stack2, symbolTable2, output2, fileTable2, heap2, PrgState.getNextID(), ex2);
         IRepository repository2 = new Repository("D:\\UBB\\Semester 3\\Advanced Programming Methods\\ToyLanguageInterpreter\\log2.txt");
         repository2.add(programState2);
@@ -63,6 +67,8 @@ public class View {
         MyList<Value> output3 = new MyList<>();
         MyDictionary<StringValue, BufferedReader> fileTable3 = new MyDictionary<>();
         Heap<Integer, Value> heap3 = new Heap<>();
+        MyIDictionary<String, Type> typeEnv3 = new MyDictionary<>();
+        ex3.typeCheck(typeEnv3);
         PrgState programState3 = new PrgState(stack3, symbolTable3, output3, fileTable3, heap3, PrgState.getNextID(), ex3);
         IRepository repository3 = new Repository("D:\\UBB\\Semester 3\\Advanced Programming Methods\\ToyLanguageInterpreter\\log3.txt");
         repository3.add(programState3);
@@ -82,6 +88,8 @@ public class View {
         MyList<Value> output4 = new MyList<>();
         MyDictionary<StringValue, BufferedReader> fileTable4 = new MyDictionary<>();
         Heap<Integer, Value> heap4 = new Heap<>();
+        MyIDictionary<String, Type> typeEnv4 = new MyDictionary<>();
+        ex4.typeCheck(typeEnv4);
         PrgState programState4 = new PrgState(stack4, symbolTable4, output4, fileTable4, heap4, PrgState.getNextID(), ex4);
         IRepository repository4 = new Repository("D:\\UBB\\Semester 3\\Advanced Programming Methods\\ToyLanguageInterpreter\\log4.txt");
         repository4.add(programState4);
@@ -111,7 +119,8 @@ public class View {
         IStmt programExample5 = new CompStmt(declare_a5, new CompStmt(assign_a5,
                 new CompStmt(declare_b5, new CompStmt(assign_b5, if_statement5))));
 
-
+        MyIDictionary<String, Type> typeEnv5 = new MyDictionary<>();
+        programExample5.typeCheck(typeEnv5);
         PrgState currentProgramState5 = new PrgState(new MyStack<>(), new MyDictionary<String, Value>(),
                 new MyList<Value>(), new MyDictionary<StringValue, BufferedReader>(), new Heap<Integer, Value>(), PrgState.getNextID(), programExample5);
         IRepository repository5 = new Repository("D:\\UBB\\Semester 3\\Advanced Programming Methods\\ToyLanguageInterpreter\\log5.txt");
@@ -123,6 +132,8 @@ public class View {
         MyList<Value> output5 = new MyList<>();
         MyDictionary<StringValue, BufferedReader> fileTable5 = new MyDictionary<>();
         IHeap<Integer, Value> heap5 = new Heap<>();
+        MyIDictionary<String, Type> typeEnv6 = new MyDictionary<>();
+        ex6.typeCheck(typeEnv6);
         PrgState programState6 = new PrgState(stack5, symbolTable5, output5, fileTable5, heap5, PrgState.getNextID(), ex6);
         IRepository repository6 = new Repository("D:\\UBB\\Semester 3\\Advanced Programming Methods\\ToyLanguageInterpreter\\log6.txt");
         repository6.add(programState6);
@@ -145,6 +156,8 @@ public class View {
         MyList<Value> output6 = new MyList<>();
         MyDictionary<StringValue, BufferedReader> fileTable6 = new MyDictionary<>();
         IHeap<Integer, Value> heap6 = new Heap<>();
+        MyIDictionary<String, Type> typeEnv7 = new MyDictionary<>();
+        ex7.typeCheck(typeEnv7);
         PrgState programState7 = new PrgState(stack6, symbolTable6, output6, fileTable6, heap6, PrgState.getNextID(), ex7);
         IRepository repository7 = new Repository("D:\\UBB\\Semester 3\\Advanced Programming Methods\\ToyLanguageInterpreter\\log7.txt");
         repository7.add(programState7);
@@ -162,6 +175,8 @@ public class View {
         MyList<Value> output8 = new MyList<>();
         MyDictionary<StringValue, BufferedReader> fileTable8 = new MyDictionary<>();
         IHeap<Integer, Value> heap8 = new Heap<>();
+        MyIDictionary<String, Type> typeEnv8 = new MyDictionary<>();
+        ex8.typeCheck(typeEnv8);
         PrgState programState8 = new PrgState(stack8, symbolTable8, output8, fileTable8, heap8, PrgState.getNextID(), ex8);
         IRepository repository8 = new Repository("D:\\UBB\\Semester 3\\Advanced Programming Methods\\ToyLanguageInterpreter\\log8.txt");
         repository8.add(programState8);
@@ -184,6 +199,8 @@ public class View {
         MyList<Value> output9 = new MyList<>();
         MyDictionary<StringValue, BufferedReader> fileTable9 = new MyDictionary<>();
         IHeap<Integer, Value> heap9 = new Heap<>();
+        MyIDictionary<String, Type> typeEnv9 = new MyDictionary<>();
+        ex9.typeCheck(typeEnv9);
         PrgState programState9 = new PrgState(stack9, symbolTable9, output9, fileTable9, heap9, PrgState.getNextID(), ex9);
         IRepository repository9 = new Repository("D:\\UBB\\Semester 3\\Advanced Programming Methods\\ToyLanguageInterpreter\\log9.txt");
         repository9.add(programState9);
@@ -212,6 +229,8 @@ public class View {
         MyList<Value> output10 = new MyList<>();
         MyDictionary<StringValue, BufferedReader> fileTable10 = new MyDictionary<>();
         IHeap<Integer, Value> heap10 = new Heap<>();
+        MyIDictionary<String, Type> typeEnv10 = new MyDictionary<>();
+        ex10.typeCheck(typeEnv10);
         PrgState programState10 = new PrgState(stack10, symbolTable10, output10, fileTable10, heap10, PrgState.getNextID(), ex10);
         IRepository repository10 = new Repository("D:\\UBB\\Semester 3\\Advanced Programming Methods\\ToyLanguageInterpreter\\log10.txt");
         repository10.add(programState10);
@@ -231,6 +250,8 @@ public class View {
         MyList<Value> output11 = new MyList<>();
         MyDictionary<StringValue, BufferedReader> fileTable11 = new MyDictionary<>();
         IHeap<Integer, Value> heap11 = new Heap<>();
+        MyIDictionary<String, Type> typeEnv11 = new MyDictionary<>();
+        ex11.typeCheck(typeEnv11);
         PrgState programState11 = new PrgState(stack11, symbolTable11, output11, fileTable11, heap11, PrgState.getNextID(), ex11);
         IRepository repository11 = new Repository("D:\\UBB\\Semester 3\\Advanced Programming Methods\\ToyLanguageInterpreter\\log11.txt");
         repository11.add(programState11);
@@ -254,6 +275,8 @@ public class View {
         MyList<Value> output12 = new MyList<>();
         MyDictionary<StringValue, BufferedReader> fileTable12 = new MyDictionary<>();
         IHeap<Integer, Value> heap12 = new Heap<>();
+        MyIDictionary<String, Type> typeEnv12 = new MyDictionary<>();
+        ex12.typeCheck(typeEnv12);
         PrgState programState12 = new PrgState(stack12, symbolTable12, output12, fileTable12, heap12, PrgState.getNextID(), ex12);
         IRepository repository12 = new Repository("D:\\UBB\\Semester 3\\Advanced Programming Methods\\ToyLanguageInterpreter\\log12.txt");
         repository12.add(programState12);

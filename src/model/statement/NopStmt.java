@@ -1,6 +1,8 @@
 package model.statement;
 
+import collections.MyIDictionary;
 import model.PrgState;
+import model.type.Type;
 
 public class NopStmt implements IStmt{
     public NopStmt() {}
@@ -14,6 +16,11 @@ public class NopStmt implements IStmt{
     @Override
     public IStmt deepcopy() {
         return new NopStmt();
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws Exception {
+        return null;
     }
 
     @Override

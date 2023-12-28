@@ -8,6 +8,7 @@ import exception.InvalidType;
 import model.PrgState;
 import model.expression.Exp;
 import model.type.BoolType;
+import model.type.Type;
 import model.value.BoolValue;
 import model.value.Value;
 
@@ -46,6 +47,18 @@ public class WhileStmt implements IStmt {
     @Override
     public IStmt deepcopy() {
         return new WhileStmt(this.expression, this.statement);
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws Exception {
+        Type type = expression.typeCheck(typeEnv);
+        if(type.equals(new BoolType()))
+        {
+            statement.typeCheck(typeEnv.copy());
+            return typeEnv;
+        }
+        else
+            throw new InvalidType("The type of the expression should be BoolType!\n");
     }
 
     @Override

@@ -6,6 +6,7 @@ import exception.DivisionByZero;
 import exception.InvalidOperator;
 import exception.InvalidType;
 import model.type.IntType;
+import model.type.Type;
 import model.value.IntValue;
 import model.value.Value;
 
@@ -40,9 +41,26 @@ public class ArithExp implements Exp {
                     else return new IntValue(firstInteger / secondInteger);
                 } else throw new InvalidOperator("Invalid operation");
             } else
-                throw new InvalidType("Second operand is not integer");
+                throw new InvalidType("Second operand is not integer\n");
         } else
-            throw new InvalidType("First operator is not an integer");
+            throw new InvalidType("First operator is not an integer\n");
+    }
+
+    @Override
+    public Type typeCheck(MyIDictionary<String, Type> typeEnv) throws Exception {
+        Type type1, type2;
+        type1 = exp1.typeCheck(typeEnv);
+        type2 = exp2.typeCheck(typeEnv);
+
+        if(type1.equals(new IntType()))
+        {
+            if(type2.equals(new IntType()))
+                return new IntType();
+            else
+                throw new InvalidType("Second operand is not an integer!\n");
+        }
+        else
+            throw new InvalidType("First operand is not an integer!\n");
     }
 
     @Override

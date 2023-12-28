@@ -4,7 +4,9 @@ import collections.IHeap;
 import collections.MyIDictionary;
 import exception.InvalidOperator;
 import exception.InvalidType;
+import model.type.BoolType;
 import model.type.IntType;
+import model.type.Type;
 import model.value.BoolValue;
 import model.value.IntValue;
 import model.value.Value;
@@ -56,6 +58,23 @@ public class RelationalExp implements Exp{
                 throw new InvalidType("Second operand is not an integer!\n");
         }
         else throw new InvalidType("First operand is not an integer!\n");
+    }
+
+    @Override
+    public Type typeCheck(MyIDictionary<String, Type> typeEnv) throws Exception {
+        Type type1, type2;
+        type1 = expression1.typeCheck(typeEnv);
+        type2 = expression2.typeCheck(typeEnv);
+
+        if(type1.equals(new IntType()))
+        {
+            if(type2.equals(new IntType()))
+                return new BoolType();
+            else
+                throw new InvalidType("The second operand should be of type IntType!\n");
+        }
+        else
+            throw new InvalidType("The first operand should be of type IntType!\n");
     }
 
     @Override

@@ -78,6 +78,22 @@ public class ReadFile implements IStmt{
     }
 
     @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws Exception {
+        Type typeVariable = typeEnv.lookUp(variableName);
+        Type typeExpression = expression.typeCheck(typeEnv);
+
+        if(typeVariable.equals(new IntType())) {
+            if (typeExpression.equals(new StringType())) {
+                return typeEnv;
+            }
+            else
+                throw new InvalidType("ReadFile : type of expression must be StringType!\n");
+        }
+        else
+            throw new InvalidType("ReadFile : type of the variable must be IntType!\n");
+    }
+
+    @Override
     public String toString() {
         return "ReadFile(" +
                 expression +

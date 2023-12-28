@@ -7,6 +7,7 @@ import exception.UndefinedVariable;
 import model.PrgState;
 import model.expression.Exp;
 import model.type.RefType;
+import model.type.Type;
 import model.value.RefValue;
 import model.value.Value;
 
@@ -47,6 +48,17 @@ public class WriteHeapStmt implements IStmt{
     @Override
     public IStmt deepcopy() {
         return new WriteHeapStmt(this.varName, this.expression);
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws Exception {
+        Type variableType = typeEnv.lookUp(varName);
+        Type expressionType = this.expression.typeCheck(typeEnv);
+
+        if(!variableType.equals(new RefType(expressionType)))
+            throw new InvalidType("WriteHeapStmt : expression cannot be evaluated!\n");
+
+        return typeEnv;
     }
 
     @Override

@@ -54,6 +54,15 @@ public class OpenReadFile implements IStmt{
     }
 
     @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws Exception {
+        Type type = this.expression.typeCheck(typeEnv);
+        if(!type.equals(new StringType()))
+            throw new InvalidType("OpenReadFile : type of expression should be StringType!\n");
+
+        return typeEnv;
+    }
+
+    @Override
     public String toString() {
         return "OpenReadFile(" +
                 expression +

@@ -1,1 +1,145 @@
 
+Program state :
+ID :10
+exeStack :MyStack[(Ref(int) v;(new(v, ValueExpression{20});(print(readHeapExp{ VarExp{'v'} });(writeHeap(v, ValueExpression{30});print(readHeapExp{ VarExp{'v'} } + ValueExpression{5})))))]
+symbolTable :{}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :10
+exeStack :MyStack[(new(v, ValueExpression{20});(print(readHeapExp{ VarExp{'v'} });(writeHeap(v, ValueExpression{30});print(readHeapExp{ VarExp{'v'} } + ValueExpression{5})))), Ref(int) v]
+symbolTable :{}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :10
+exeStack :MyStack[(new(v, ValueExpression{20});(print(readHeapExp{ VarExp{'v'} });(writeHeap(v, ValueExpression{30});print(readHeapExp{ VarExp{'v'} } + ValueExpression{5})))), Ref(int) v]
+symbolTable :{}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :10
+exeStack :MyStack[(new(v, ValueExpression{20});(print(readHeapExp{ VarExp{'v'} });(writeHeap(v, ValueExpression{30});print(readHeapExp{ VarExp{'v'} } + ValueExpression{5}))))]
+symbolTable :{v=(0,int)}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :10
+exeStack :MyStack[(new(v, ValueExpression{20});(print(readHeapExp{ VarExp{'v'} });(writeHeap(v, ValueExpression{30});print(readHeapExp{ VarExp{'v'} } + ValueExpression{5}))))]
+symbolTable :{v=(0,int)}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :10
+exeStack :MyStack[(print(readHeapExp{ VarExp{'v'} });(writeHeap(v, ValueExpression{30});print(readHeapExp{ VarExp{'v'} } + ValueExpression{5}))), new(v, ValueExpression{20})]
+symbolTable :{v=(0,int)}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :10
+exeStack :MyStack[(print(readHeapExp{ VarExp{'v'} });(writeHeap(v, ValueExpression{30});print(readHeapExp{ VarExp{'v'} } + ValueExpression{5}))), new(v, ValueExpression{20})]
+symbolTable :{v=(0,int)}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :10
+exeStack :MyStack[(print(readHeapExp{ VarExp{'v'} });(writeHeap(v, ValueExpression{30});print(readHeapExp{ VarExp{'v'} } + ValueExpression{5})))]
+symbolTable :{v=(1,int)}
+output :[]
+fileTable :{}
+heap :[1->20] 
+
+Program state :
+ID :10
+exeStack :MyStack[(print(readHeapExp{ VarExp{'v'} });(writeHeap(v, ValueExpression{30});print(readHeapExp{ VarExp{'v'} } + ValueExpression{5})))]
+symbolTable :{v=(1,int)}
+output :[]
+fileTable :{}
+heap :[1->20] 
+
+Program state :
+ID :10
+exeStack :MyStack[(writeHeap(v, ValueExpression{30});print(readHeapExp{ VarExp{'v'} } + ValueExpression{5})), print(readHeapExp{ VarExp{'v'} })]
+symbolTable :{v=(1,int)}
+output :[]
+fileTable :{}
+heap :[1->20] 
+
+Program state :
+ID :10
+exeStack :MyStack[(writeHeap(v, ValueExpression{30});print(readHeapExp{ VarExp{'v'} } + ValueExpression{5})), print(readHeapExp{ VarExp{'v'} })]
+symbolTable :{v=(1,int)}
+output :[]
+fileTable :{}
+heap :[1->20] 
+
+Program state :
+ID :10
+exeStack :MyStack[(writeHeap(v, ValueExpression{30});print(readHeapExp{ VarExp{'v'} } + ValueExpression{5}))]
+symbolTable :{v=(1,int)}
+output :[20]
+fileTable :{}
+heap :[1->20] 
+
+Program state :
+ID :10
+exeStack :MyStack[(writeHeap(v, ValueExpression{30});print(readHeapExp{ VarExp{'v'} } + ValueExpression{5}))]
+symbolTable :{v=(1,int)}
+output :[20]
+fileTable :{}
+heap :[1->20] 
+
+Program state :
+ID :10
+exeStack :MyStack[print(readHeapExp{ VarExp{'v'} } + ValueExpression{5}), writeHeap(v, ValueExpression{30})]
+symbolTable :{v=(1,int)}
+output :[20]
+fileTable :{}
+heap :[1->20] 
+
+Program state :
+ID :10
+exeStack :MyStack[print(readHeapExp{ VarExp{'v'} } + ValueExpression{5}), writeHeap(v, ValueExpression{30})]
+symbolTable :{v=(1,int)}
+output :[20]
+fileTable :{}
+heap :[1->20] 
+
+Program state :
+ID :10
+exeStack :MyStack[print(readHeapExp{ VarExp{'v'} } + ValueExpression{5})]
+symbolTable :{v=(1,int)}
+output :[20]
+fileTable :{}
+heap :[1->30] 
+
+Program state :
+ID :10
+exeStack :MyStack[print(readHeapExp{ VarExp{'v'} } + ValueExpression{5})]
+symbolTable :{v=(1,int)}
+output :[20]
+fileTable :{}
+heap :[1->30] 
+
+Program state :
+ID :10
+exeStack :MyStack[]
+symbolTable :{v=(1,int)}
+output :[20, 35]
+fileTable :{}
+heap :[1->30] 
+

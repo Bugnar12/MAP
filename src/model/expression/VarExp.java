@@ -3,6 +3,7 @@ package model.expression;
 import collections.IHeap;
 import collections.MyIDictionary;
 import exception.UndefinedVariable;
+import model.type.Type;
 import model.value.Value;
 
 public class VarExp implements Exp{
@@ -19,6 +20,11 @@ public class VarExp implements Exp{
             throw new UndefinedVariable();
         else
             return table.lookUp(id);
+    }
+
+    @Override
+    public Type typeCheck(MyIDictionary<String, Type> typeEnv) throws Exception {
+        return typeEnv.lookUp(id);
     }
 
     @Override

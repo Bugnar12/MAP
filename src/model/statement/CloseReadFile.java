@@ -49,6 +49,14 @@ public class CloseReadFile implements IStmt{
     }
 
     @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws Exception {
+        Type type = expression.typeCheck(typeEnv);
+        if(!type.equals(new StringType()))
+            throw new InvalidType("The type of the file should be StringType!\n");
+        return typeEnv;
+    }
+
+    @Override
     public String toString() {
         return "Close the file" + this.expression;
     }

@@ -5,6 +5,7 @@ import collections.MyIDictionary;
 import exception.InvalidOperator;
 import exception.InvalidType;
 import model.type.BoolType;
+import model.type.Type;
 import model.value.BoolValue;
 import model.value.Value;
 
@@ -44,6 +45,23 @@ public class LogicExp implements Exp{
                 throw new InvalidType("Second operand is not boolean!");
         } else
             throw new InvalidType("First operand is not boolean!");
+    }
+
+    @Override
+    public Type typeCheck(MyIDictionary<String, Type> typeEnv) throws Exception {
+        Type type1, type2;
+        type1 = expression1.typeCheck(typeEnv);
+        type2 = expression2.typeCheck(typeEnv);
+
+        if(type1.equals(new BoolType()))
+        {
+            if(type2.equals(new BoolType()))
+                return new BoolType();
+            else
+                throw new InvalidType("The type of the second operand should be BoolType!\n");
+        }
+        else
+            throw new InvalidType("The type of the first operand should be BoolType!\n");
     }
 
     @Override

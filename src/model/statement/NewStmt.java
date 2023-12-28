@@ -8,8 +8,11 @@ import exception.UndefinedVariable;
 import model.PrgState;
 import model.expression.Exp;
 import model.type.RefType;
+import model.type.Type;
 import model.value.RefValue;
 import model.value.Value;
+
+import java.sql.Ref;
 
 public class NewStmt implements IStmt{
     private String variableName;
@@ -53,6 +56,17 @@ public class NewStmt implements IStmt{
     @Override
     public IStmt deepcopy() {
         return new NewStmt(variableName, expression);
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws Exception {
+        Type typeVariable = typeEnv.lookUp(this.variableName);
+        Type typeExpression = expression.typeCheck(typeEnv);
+
+        if(typeVariable.equals(new RefType(typeExpression)))
+            return typeEnv;
+        else
+            throw new InvalidType("New stmt : rhs and lhs operators have different types!\n");
     }
 
     @Override

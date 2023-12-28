@@ -50,6 +50,16 @@ public class AssignStmt implements IStmt{
         return new AssignStmt(id, expression);
     }
 
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws Exception {
+        Type typeVar = typeEnv.lookUp(id);
+        Type typeExp = expression.typeCheck(typeEnv);
+        if(typeVar.equals(typeExp))
+            return typeEnv;
+        else
+            throw new InvalidType("AssignStmt rhs and lhs have different types!\n");
+    }
+
 
     @Override
     public String toString() {
