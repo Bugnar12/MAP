@@ -1,1 +1,329 @@
 
+Program state :
+ID :12
+exeStack :MyStack[(int v;(Ref(int) a;(v=ValueExpression{10};(new(a, ValueExpression{22});(Fork( (writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))) );(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))))))]
+symbolTable :{}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :12
+exeStack :MyStack[(Ref(int) a;(v=ValueExpression{10};(new(a, ValueExpression{22});(Fork( (writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))) );(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))))), int v]
+symbolTable :{}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :12
+exeStack :MyStack[(Ref(int) a;(v=ValueExpression{10};(new(a, ValueExpression{22});(Fork( (writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))) );(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))))), int v]
+symbolTable :{}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :12
+exeStack :MyStack[(Ref(int) a;(v=ValueExpression{10};(new(a, ValueExpression{22});(Fork( (writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))) );(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} }))))))]
+symbolTable :{v=0}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :12
+exeStack :MyStack[(Ref(int) a;(v=ValueExpression{10};(new(a, ValueExpression{22});(Fork( (writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))) );(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} }))))))]
+symbolTable :{v=0}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :12
+exeStack :MyStack[(v=ValueExpression{10};(new(a, ValueExpression{22});(Fork( (writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))) );(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} }))))), Ref(int) a]
+symbolTable :{v=0}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :12
+exeStack :MyStack[(v=ValueExpression{10};(new(a, ValueExpression{22});(Fork( (writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))) );(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} }))))), Ref(int) a]
+symbolTable :{v=0}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :12
+exeStack :MyStack[(v=ValueExpression{10};(new(a, ValueExpression{22});(Fork( (writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))) );(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))))]
+symbolTable :{a=(0,int), v=0}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :12
+exeStack :MyStack[(v=ValueExpression{10};(new(a, ValueExpression{22});(Fork( (writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))) );(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))))]
+symbolTable :{a=(0,int), v=0}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :12
+exeStack :MyStack[(new(a, ValueExpression{22});(Fork( (writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))) );(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))), v=ValueExpression{10}]
+symbolTable :{a=(0,int), v=0}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :12
+exeStack :MyStack[(new(a, ValueExpression{22});(Fork( (writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))) );(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))), v=ValueExpression{10}]
+symbolTable :{a=(0,int), v=0}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :12
+exeStack :MyStack[(new(a, ValueExpression{22});(Fork( (writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))) );(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} }))))]
+symbolTable :{a=(0,int), v=10}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :12
+exeStack :MyStack[(new(a, ValueExpression{22});(Fork( (writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))) );(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} }))))]
+symbolTable :{a=(0,int), v=10}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :12
+exeStack :MyStack[(Fork( (writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))) );(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} }))), new(a, ValueExpression{22})]
+symbolTable :{a=(0,int), v=10}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :12
+exeStack :MyStack[(Fork( (writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))) );(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} }))), new(a, ValueExpression{22})]
+symbolTable :{a=(0,int), v=10}
+output :[]
+fileTable :{}
+heap :
+
+Program state :
+ID :12
+exeStack :MyStack[(Fork( (writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))) );(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))]
+symbolTable :{a=(1,int), v=10}
+output :[]
+fileTable :{}
+heap :[1->22] 
+
+Program state :
+ID :12
+exeStack :MyStack[(Fork( (writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))) );(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))]
+symbolTable :{a=(1,int), v=10}
+output :[]
+fileTable :{}
+heap :[1->22] 
+
+Program state :
+ID :12
+exeStack :MyStack[(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })), Fork( (writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))) )]
+symbolTable :{a=(1,int), v=10}
+output :[]
+fileTable :{}
+heap :[1->22] 
+
+Program state :
+ID :12
+exeStack :MyStack[(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })), Fork( (writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))) )]
+symbolTable :{a=(1,int), v=10}
+output :[]
+fileTable :{}
+heap :[1->22] 
+
+Program state :
+ID :12
+exeStack :MyStack[(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} }))]
+symbolTable :{a=(1,int), v=10}
+output :[]
+fileTable :{}
+heap :[1->22] 
+
+Program state :
+ID :13
+exeStack :MyStack[(writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} }))))]
+symbolTable :{a=(1,int), v=10}
+output :[]
+fileTable :{}
+heap :[1->22] 
+
+Program state :
+ID :12
+exeStack :MyStack[(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} }))]
+symbolTable :{a=(1,int), v=10}
+output :[]
+fileTable :{}
+heap :[1->22] 
+
+Program state :
+ID :13
+exeStack :MyStack[(writeHeap(a, ValueExpression{30});(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} }))))]
+symbolTable :{a=(1,int), v=10}
+output :[]
+fileTable :{}
+heap :[1->22] 
+
+Program state :
+ID :12
+exeStack :MyStack[print(readHeapExp{ VarExp{'a'} }), print(VarExp{'v'})]
+symbolTable :{a=(1,int), v=10}
+output :[]
+fileTable :{}
+heap :[1->22] 
+
+Program state :
+ID :13
+exeStack :MyStack[(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} }))), writeHeap(a, ValueExpression{30})]
+symbolTable :{a=(1,int), v=10}
+output :[]
+fileTable :{}
+heap :[1->22] 
+
+Program state :
+ID :12
+exeStack :MyStack[print(readHeapExp{ VarExp{'a'} }), print(VarExp{'v'})]
+symbolTable :{a=(1,int), v=10}
+output :[]
+fileTable :{}
+heap :[1->22] 
+
+Program state :
+ID :13
+exeStack :MyStack[(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} }))), writeHeap(a, ValueExpression{30})]
+symbolTable :{a=(1,int), v=10}
+output :[]
+fileTable :{}
+heap :[1->22] 
+
+Program state :
+ID :12
+exeStack :MyStack[print(readHeapExp{ VarExp{'a'} })]
+symbolTable :{a=(1,int), v=10}
+output :[10]
+fileTable :{}
+heap :[1->30] 
+
+Program state :
+ID :13
+exeStack :MyStack[(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))]
+symbolTable :{a=(1,int), v=10}
+output :[10]
+fileTable :{}
+heap :[1->30] 
+
+Program state :
+ID :12
+exeStack :MyStack[print(readHeapExp{ VarExp{'a'} })]
+symbolTable :{a=(1,int), v=10}
+output :[10]
+fileTable :{}
+heap :[1->30] 
+
+Program state :
+ID :13
+exeStack :MyStack[(v=ValueExpression{32};(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })))]
+symbolTable :{a=(1,int), v=10}
+output :[10]
+fileTable :{}
+heap :[1->30] 
+
+Program state :
+ID :12
+exeStack :MyStack[]
+symbolTable :{a=(1,int), v=10}
+output :[10, 30]
+fileTable :{}
+heap :[1->30] 
+
+Program state :
+ID :13
+exeStack :MyStack[(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })), v=ValueExpression{32}]
+symbolTable :{a=(1,int), v=10}
+output :[10, 30]
+fileTable :{}
+heap :[1->30] 
+
+Program state :
+ID :13
+exeStack :MyStack[(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} })), v=ValueExpression{32}]
+symbolTable :{a=(1,int), v=10}
+output :[10, 30]
+fileTable :{}
+heap :[1->30] 
+
+Program state :
+ID :13
+exeStack :MyStack[(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} }))]
+symbolTable :{a=(1,int), v=32}
+output :[10, 30]
+fileTable :{}
+heap :[1->30] 
+
+Program state :
+ID :13
+exeStack :MyStack[(print(VarExp{'v'});print(readHeapExp{ VarExp{'a'} }))]
+symbolTable :{a=(1,int), v=32}
+output :[10, 30]
+fileTable :{}
+heap :[1->30] 
+
+Program state :
+ID :13
+exeStack :MyStack[print(readHeapExp{ VarExp{'a'} }), print(VarExp{'v'})]
+symbolTable :{a=(1,int), v=32}
+output :[10, 30]
+fileTable :{}
+heap :[1->30] 
+
+Program state :
+ID :13
+exeStack :MyStack[print(readHeapExp{ VarExp{'a'} }), print(VarExp{'v'})]
+symbolTable :{a=(1,int), v=32}
+output :[10, 30]
+fileTable :{}
+heap :[1->30] 
+
+Program state :
+ID :13
+exeStack :MyStack[print(readHeapExp{ VarExp{'a'} })]
+symbolTable :{a=(1,int), v=32}
+output :[10, 30, 32]
+fileTable :{}
+heap :[1->30] 
+
+Program state :
+ID :13
+exeStack :MyStack[print(readHeapExp{ VarExp{'a'} })]
+symbolTable :{a=(1,int), v=32}
+output :[10, 30, 32]
+fileTable :{}
+heap :[1->30] 
+
+Program state :
+ID :13
+exeStack :MyStack[]
+symbolTable :{a=(1,int), v=32}
+output :[10, 30, 32, 30]
+fileTable :{}
+heap :[1->30] 
+

@@ -1,16 +1,15 @@
 package model;
 
+import collections.IHeap;
 import collections.MyIDictionary;
 import collections.MyIList;
 import collections.MyIStack;
-import collections.IHeap;
 import exception.EmptyADT;
 import model.statement.IStmt;
 import model.value.StringValue;
 import model.value.Value;
 
 import java.io.BufferedReader;
-import java.nio.Buffer;
 
 
 /*The program state contains an execution stack, a symbol table and an output

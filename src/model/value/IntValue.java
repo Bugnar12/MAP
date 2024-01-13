@@ -28,7 +28,7 @@ public class IntValue implements Value{
 
     @Override
     public String toString() {
-        return String.valueOf(val);
+        return Integer.toString(val);
     }
     @Override
     public boolean equals(Object obj)

@@ -25,7 +25,16 @@ public class Repository implements IRepository{
         {
             System.out.println(ex.getMessage());
         }
+    }
 
+    public Repository(List<PrgState> prgStates, String logFilePath) {
+        this.programs = prgStates;
+        this.logFilePath = logFilePath;
+        try {
+            clearFile();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 //    @Override
 //    public PrgState getCurrentProgram() {

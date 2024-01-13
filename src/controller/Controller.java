@@ -1,27 +1,15 @@
 package controller;
 
-import collections.Heap;
 import collections.IHeap;
-import collections.MyIStack;
-import exception.InvalidRepositroy;
 import model.PrgState;
-import model.expression.Exp;
-import model.expression.ValueExp;
-import model.expression.VarExp;
-import model.expression.readHeapExp;
-import model.statement.*;
-import model.type.IntType;
-import model.type.RefType;
-import model.value.IntValue;
 import model.value.RefValue;
 import model.value.Value;
 import repository.IRepository;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Controller {
     private IRepository repo;
@@ -37,6 +25,15 @@ public class Controller {
 
     public Controller(IRepository repo) {
         this.repo = repo;
+    }
+
+    public List<PrgState> getProgramStates()
+    {
+        return this.repo.getProgramList();
+    }
+    public void setProgramStates(List<PrgState> newProgramStates)
+    {
+        this.repo.setProgramList(newProgramStates);
     }
 
 //    public PrgState oneStep(PrgState state) throws Exception {
@@ -117,7 +114,7 @@ public class Controller {
                 .collect(Collectors.toList());
     }
 
-    void oneStepForAllPrograms(List<PrgState> programList) throws InterruptedException {
+    public void oneStepForAllPrograms(List<PrgState> programList) throws InterruptedException {
         programList.forEach(p -> {
             try {
                 this.repo.logPrgStateExec(p);
@@ -185,6 +182,24 @@ public class Controller {
 
             //System.out.println(program); //display the program states sequentially
 
+    }
+
+    public void conservativeGarbageCollector(List<PrgState> programStates) {
+        List<Integer> symTableAddresses = Objects.requireNonNull(programStates.stream()
+                        .map(p -> getAddrFromSymbolTable(p.getSymbolTable().getAllValues()))
+                        .map(Collection::stream)
+                        .reduce(Stream::concat).orElse(null))
+                .collect(Collectors.toList());
+        programStates.forEach(p -> p.getHeap().setContent((HashMap<Integer, Value>) safeGarbageCollector2(symTableAddresses,this.getAddrFromHeapTable(p.getHeap().getAllValues()), p)));
+    }
+
+    public void oneStepGUI() throws InterruptedException
+    {
+        executor = Executors.newFixedThreadPool(2);
+        List<PrgState> programStates = removeCompletedProgram(this.repo.getProgramList());
+        oneStepForAllPrograms(programStates);
+        conservativeGarbageCollector(programStates);
+        executor.shutdownNow();
     }
 
 }
