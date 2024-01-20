@@ -65,7 +65,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <ListView fx:id="programStateListView" prefHeight="247.0" prefWidth="239.0" />
+            <ListView fx:id="programStateListView" onMouseClicked="#changeProgramState" prefHeight="247.0" prefWidth="239.0" />
          </children>
       </VBox>
       <VBox layoutX="586.0" layoutY="486.0" prefHeight="285.0" prefWidth="218.0">

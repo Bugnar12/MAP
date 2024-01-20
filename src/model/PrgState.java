@@ -22,25 +22,16 @@ public class PrgState {
     private MyIDictionary<StringValue, BufferedReader> fileTable;
     private IHeap<Integer, Value> heap;
     private int id;
-    private static int nextID = 0;
-    public static synchronized int getNextID()
-    {
-        return nextID++; // this will be passed to the id from our class
-    }
+    private static int nextID = 1;
 
-    public PrgState(MyIStack<IStmt> stack, MyIDictionary<String, Value> symtbl, MyIList<Value> o, MyIDictionary<StringValue, BufferedReader> fileTable, IHeap<Integer, Value> heap, int id, IStmt prg)
+    public PrgState(MyIStack<IStmt> stack, MyIDictionary<String, Value> symtbl, MyIList<Value> o, MyIDictionary<StringValue, BufferedReader> fileTable, IHeap<Integer, Value> heap, IStmt prg)
     {
-        /*synchronized (PrgState.class)
-        {
-            this.id = nextID;
-            nextID++;
-        }*/
         this.exeStack = stack;
         this.symbolTable = symtbl;
         this.out = o;
         this.fileTable = fileTable;
         this.heap = heap;
-        this.id = id;
+        this.id = setNextID();
         this.originalPrg = prg.deepcopy();
         stack.push(prg);
     }
@@ -80,9 +71,9 @@ public class PrgState {
     public int getId() {
         return id;
     }
-    public void setId(int newID)
+    public synchronized int setNextID()
     {
-        this.id = newID;
+        return nextID++; // this will be passed to the id from our class
     }
 
     public Boolean isNotCompleted()

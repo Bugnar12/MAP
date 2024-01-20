@@ -23,7 +23,7 @@ public class ForkStmt implements IStmt{
         //stackFork.push(this.statement);
 
         return new PrgState(stackFork, dictionaryCopy, state.getOut(), state.getFileTable(),
-                state.getHeap(), PrgState.getNextID(), this.statement);
+                state.getHeap(), this.statement);
 
     }
     @Override

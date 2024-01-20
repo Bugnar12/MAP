@@ -64,7 +64,7 @@ public class ControllerGUI {
     @FXML
     public void initialize() {
         //set constraints on the programStates
-        programStateListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        programStateListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE); //select only one prgState at once
 
         addressColumn.setCellValueFactory(p -> new SimpleIntegerProperty(p.getValue().first).asObject());
         valueColumn.setCellValueFactory(p -> new SimpleStringProperty(p.getValue().second.toString()));
@@ -95,9 +95,7 @@ public class ControllerGUI {
         for (Object key : currentHeap.getContent().keySet()) {
             heapEntries.add(new Pair<>((Integer) key, (Value) currentHeap.get(key)));
         }
-
         heapTableView.setItems(FXCollections.observableArrayList(heapEntries));
-
     }
 
     private void populateOutputListView() {
@@ -156,6 +154,13 @@ public class ControllerGUI {
         populateProgramStateListView();
         populateSymbolTableView();
         populateExecutionStack();
+    }
+
+    @FXML
+    private void changeProgramState(MouseEvent event) {
+        //only call these 2 because the rest of the structures are populated
+        populateExecutionStack();
+        populateSymbolTableView();
     }
 
     @FXML
